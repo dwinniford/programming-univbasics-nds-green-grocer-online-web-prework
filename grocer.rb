@@ -82,6 +82,10 @@ def checkout(cart, coupons)
     i += 1 
   end 
   total 
+  if total >= 100 
+    total = total * .9
+  end 
+  total 
   # Consult README for inputs and outputs
   #
   # This method should call
