@@ -75,12 +75,11 @@ end
 
 def checkout(cart, coupons)
   total = 0 
+  new_cart = apply_clearance(apply_coupons(consolidate_cart(cart)))
   i = 0 
-  new_cart = consolidate_cart(cart)
   while i < new_cart.length do 
-    if !new_cart[i][:item] == find_item_by_name_in_collection(new_cart[i][:item], coupons)[:item] && !new_cart[i][:clearance]
-      total += new_cart[i][:price]*new_cart[i][:count]
-    end 
+    total += new_cart[i][:price]*new_cart[i][:count]
+    i += 1 
   end 
   # Consult README for inputs and outputs
   #
